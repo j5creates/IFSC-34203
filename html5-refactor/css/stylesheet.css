@@ -1,0 +1,38 @@
+
+html{
+box-sizing: border-box;
+}
+
+*,
+* ::before,
+* ::after{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.5;
+    background: #ffffff;
+    color: #222
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #fff;
+}
+.primary{
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #222;
+}
+#content{
+    container-type: inline-size;
+    container-name: content;
+    padding: 1rem 0;
+}
+ul{
+    list-style-type: none; /* Removes bullet points */
+    margin: 0;             /* Removes default margin */
+    padding: 0;            /* Removes default padding */
+}
