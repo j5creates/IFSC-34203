@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapid Prototype</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* This is a Low-fi styling to mimic a wireframe */
+        .placeholder-box {
+            background-color: #e9ecef;
+            border: 2px dashed #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">[Project Logo]</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="btn btn-primary ms-lg-3" href="#">CTA Button</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-5 border-bottom bg-white">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="my-5">
+                        <h1 class="display-5 fw-bolder mb-2">Main Value Proposition</h1>
+                        <p class="lead text-muted mb-4">This is a brief description of what your project does. Keep it simple for the low-fi prototype.</p>
+                        <div class="d-grid gap-3 d-sm-flex">
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                            <a class="btn btn-outline-secondary btn-lg px-4" href="#!">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="placeholder-box text-muted">Hero Image / Video Placeholder</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5" id="features">
+        <div class="container px-5 my-5">
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 p-3 d-inline-block">Icon</div>
+                    <h2 class="h4 fw-bolder">Feature One</h2>
+                    <p>Describe a core function of your prototype here.</p>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 p-3 d-inline-block">Icon</div>
+                    <h2 class="h4 fw-bolder">Feature Two</h2>
+                    <p>Describe another core function to show utility.</p>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3 p-3 d-inline-block">Icon</div>
+                    <h2 class="h4 fw-bolder">Feature Three</h2>
+                    <p>Explain why this specific feature matters to the user.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5 bg-dark">
+        <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Your Project 2026</p></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

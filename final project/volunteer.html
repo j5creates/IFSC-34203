@@ -1,0 +1,285 @@
+Volunteer popup · HTML
+Copy
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join as a Volunteer</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    :root {
+      --bg: #1e1f24;
+      --card: #ffffff;
+      --heading: #18191f;
+      --body: #5a5d6b;
+      --label: #7a7d8c;
+      --input-border: #d0d2db;
+      --input-focus: #18191f;
+      --btn: #f07070;
+      --btn-hover: #e85c5c;
+      --close-bg: #18191f;
+      --close-fg: #ffffff;
+    }
+ 
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+ 
+    /* Subtle grid overlay on bg */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+ 
+    .label-tag {
+      position: fixed;
+      top: 16px;
+      left: 20px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      font-family: 'DM Sans', sans-serif;
+    }
+ 
+    /* ── Modal card ── */
+    .modal {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 44px 48px 48px;
+      width: 100%;
+      max-width: 640px;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,.45);
+      animation: rise .45s cubic-bezier(.22,1,.36,1) both;
+    }
+ 
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(28px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+ 
+    /* ── Close button ── */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--close-bg);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .18s, transform .18s;
+    }
+    .close-btn:hover { background: #333; transform: scale(1.06); }
+    .close-btn svg { width: 16px; height: 16px; stroke: var(--close-fg); stroke-width: 2.5; }
+ 
+    /* ── Heading ── */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--heading);
+      line-height: 1.1;
+      margin-bottom: 14px;
+      margin-top: 8px;
+    }
+ 
+    .subtitle {
+      font-size: 15px;
+      color: var(--body);
+      line-height: 1.6;
+      max-width: 500px;
+      font-weight: 300;
+    }
+ 
+    /* ── Form ── */
+    .form { margin-top: 36px; display: flex; flex-direction: column; gap: 28px; }
+ 
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+ 
+    .field { display: flex; flex-direction: column; gap: 8px; }
+ 
+    label {
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--label);
+    }
+ 
+    input, textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--heading);
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid var(--input-border);
+      padding: 8px 0 10px;
+      outline: none;
+      transition: border-color .2s;
+      width: 100%;
+      resize: none;
+    }
+    input::placeholder, textarea::placeholder { color: #c5c7d0; }
+    input:focus, textarea:focus { border-bottom-color: var(--input-focus); }
+ 
+    textarea {
+      border: 1.5px solid var(--input-border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      min-height: 140px;
+      transition: border-color .2s;
+    }
+    textarea:focus { border-color: var(--input-focus); }
+ 
+    /* ── Submit button ── */
+    .submit-btn {
+      align-self: flex-start;
+      padding: 14px 36px;
+      background: var(--btn);
+      color: #18191f;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 18px rgba(240,112,112,.35);
+    }
+    .submit-btn:hover {
+      background: var(--btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(240,112,112,.45);
+    }
+    .submit-btn:active { transform: translateY(0); }
+ 
+    /* ── Success state ── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 32px 0 8px;
+    }
+    .success-msg .check {
+      width: 56px; height: 56px;
+      background: #f0faf4;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .success-msg .check svg { width: 24px; height: 24px; stroke: #3cba70; stroke-width: 2.5; }
+    .success-msg h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--heading); margin-bottom: 8px; }
+    .success-msg p  { color: var(--body); font-size: 15px; font-weight: 300; }
+ 
+    @media (max-width: 480px) {
+      .modal { padding: 32px 24px 36px; }
+      .row { grid-template-columns: 1fr; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+ 
+  <span class="label-tag">Popup</span>
+ 
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+ 
+    <button class="close-btn" aria-label="Close" onclick="closeModal()">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+ 
+    <!-- Form content -->
+    <div id="form-content">
+      <h1 id="modal-title">Join as a volunteer</h1>
+      <p class="subtitle">Join as a volunteer and help us make a meaningful difference in the lives of those we serve.</p>
+ 
+      <div class="form">
+        <div class="row">
+          <div class="field">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" autocomplete="given-name" placeholder="Jane" />
+          </div>
+          <div class="field">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" autocomplete="family-name" placeholder="Smith" />
+          </div>
+        </div>
+ 
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@example.com" />
+        </div>
+ 
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Type your message"></textarea>
+        </div>
+ 
+        <button class="submit-btn" onclick="handleSubmit()">Send message</button>
+      </div>
+    </div>
+ 
+    <!-- Success state -->
+    <div class="success-msg" id="success-msg">
+      <div class="check">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2>You're signed up!</h2>
+      <p>Thanks for volunteering. We'll be in touch soon.</p>
+    </div>
+ 
+  </div>
+ 
+  <script>
+    function closeModal() {
+      document.querySelector('.modal').style.animation = 'none';
+      document.querySelector('.modal').style.opacity = '0';
+      document.querySelector('.modal').style.transform = 'translateY(20px) scale(.97)';
+      document.querySelector('.modal').style.transition = 'opacity .25s, transform .25s';
+    }
+ 
+    function handleSubmit() {
+      const first = document.getElementById('first-name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!first || !email) {
+        document.getElementById('first-name').style.borderBottomColor = first ? '' : '#f07070';
+        document.getElementById('email').style.borderBottomColor = email ? '' : '#f07070';
+        return;
+      }
+      document.getElementById('form-content').style.display = 'none';
+      const s = document.getElementById('success-msg');
+      s.style.display = 'block';
+    }
+  </script>
+ 
+</body>
+</html>
+ 
