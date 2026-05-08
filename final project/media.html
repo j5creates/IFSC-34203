@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serverse - Inclusive Care</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    :root {
+    --primary-peach: #eb9486;
+    --dark-bg: #1d1d1d;
+    --light-green-bg: #f2fdf6;
+    --card-green: #4f9d69;
+    --text-main: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    background: #fff;
+}
+
+.logo { font-weight: bold; font-size: 1.5rem; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { text-decoration: none; color: #555; font-size: 0.9rem; }
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    padding: 80px 10%;
+    background-color: var(--light-green-bg);
+    gap: 50px;
+}
+
+.hero-content { flex: 1; }
+.hero-content h1 { font-size: 3rem; margin: 20px 0; }
+
+.info-cards {
+    flex: 1;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.info-card {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info-card img { width: 100px; height: 80px; border-radius: 8px; object-fit: cover; }
+.card-text h3 { margin: 0; font-size: 1.1rem; }
+.date { font-size: 0.8rem; color: #888; }
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-peach);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-dark { background: var(--dark-bg); color: white; border: none; padding: 10px 25px; border-radius: 5px; }
+.btn-light { background: white; color: var(--dark-bg); border: none; padding: 12px 30px; border-radius: 5px; margin-left: 10px; }
+
+/* CTA Banner */
+.cta-banner {
+    background: url('hero-bg.jpg') center/cover;
+    height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.overlay { padding: 40px; border-radius: 10px; max-width: 700px; }
+
+/* Events */
+.events-section { padding: 80px 10%; }
+.event-grid { display: flex; gap: 20px; margin-top: 30px; }
+
+.event-card {
+    flex: 1;
+    background: var(--card-green);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.event-date { font-size: 2rem; font-weight: bold; text-align: center; line-height: 1; }
+.event-date span { display: block; font-size: 0.8rem; font-weight: normal; }
+
+/* Footer */
+.main-footer {
+    background: #000;
+    color: #fff;
+    padding: 80px 10%;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 1.5fr;
+    gap: 40px;
+}
+
+.footer-links ul { list-style: none; padding: 0; color: #bbb; font-size: 0.9rem; }
+.subscribe-box {
+    display: flex;
+    margin-top: 20px;
+}
+
+.subscribe-box input {
+    background: transparent;
+    border: 1px solid #444;
+    padding: 10px;
+    color: white;
+    flex: 1;
+}
+
+.subscribe-box button {
+    background: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+</style>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Serverse</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="whatwedo.html">What We Do</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="btn-dark">Donate</button>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="top-news-label">TOP NEWS</span>
+            <h1>Our goal is to provide inclusive care for children with special needs</h1>
+            <p>Our goal is to provide inclusive care for children with special needs so every child can grow, learn, and thrive.</p>
+            <button class="btn-primary">Read more</button>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <img src="autism.jpg" alt="Autism">
+                <div class="card-text">
+                    <h3>Autism care day</h3>
+                    <span class="date">15th Nov 2022</span>
+                    <p>Autism Care Day is dedicated to raising awareness and providing support.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <img src="down-syndrome.jpg" alt="Down Syndrome">
+                <div class="card-text">
+                    <h3>Down syndrome outreach</h3>
+                    <span class="date">15th Nov 2022</span>
+                    <p>Providing support, resources, and awareness for individuals and families.</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <img src="cerebral-palsy.jpg" alt="Cerebral Palsy">
+                <div class="card-text">
+                    <h3>Caring for children with cerebral palsy</h3>
+                    <span class="date">15th Nov 2022</span>
+                    <p>Providing support and inclusive care to help them thrive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="overlay">
+            <h2>You can contribute to provide a place for children with special needs!</h2>
+            <div class="cta-buttons">
+                <button class="btn-primary">Join as a volunteer</button>
+                <button class="btn-light">Donate</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="events-section">
+        <h2>Our Events</h2>
+        <div class="event-grid">
+            <div class="event-card">
+                <div class="event-date">13 <span>APR</span></div>
+                <div class="event-info">
+                    <span class="next-event-label">NEXT EVENTS</span>
+                    <h3>A day with our wonderful children</h3>
+                </div>
+                <div class="arrow-btn">→</div>
+            </div>
+            <div class="event-card">
+                <div class="event-date">25 <span>APR</span></div>
+                <div class="event-info">
+                    <span class="next-event-label">NEXT EVENTS</span>
+                    <h3>Seminar: Caring for children with autism</h3>
+                </div>
+                <div class="arrow-btn">→</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>Serverse</h2>
+            </div>
+            <div class="footer-links">
+                <h4>Home</h4>
+                <ul><li>About us</li><li>Team</li><li>What we do</li><li>Contact</li></ul>
+            </div>
+            <div class="footer-links">
+                <h4>More</h4>
+                <ul><li>Projects</li><li>Events</li><li>Donate</li><li>Blog</li></ul>
+            </div>
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <ul><li>Facebook</li><li>Instagram</li><li>Twitter</li><li>LinkedIn</li></ul>
+            </div>
+            <div class="footer-subscribe">
+                <h3>Subscribe to get latest updates</h3>
+                <div class="subscribe-box">
+                    <input type="email" placeholder="Your email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -119,9 +119,13 @@ ul {
 }
 
 /* Hero Section */
+/* Hero Section */
 .hero {
-    height: 600px;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1593113563332-e14b03caa128?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+    height: 100vh; /* Makes it full screen height */
+    min-height: 600px;
+    /* Uses your image as a background with a dark tint overlay */
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
+                url('../img/image.png') center/cover no-repeat;
     display: flex;
     align-items: center;
     position: relative;
@@ -129,10 +133,12 @@ ul {
 }
 
 .hero-content h1 {
-    font-size: 64px;
+    font-size: 72px; /* Matching the large scale in your screenshot */
+    font-weight: 700;
     line-height: 1.1;
-    max-width: 600px;
+    max-width: 650px;
     margin-bottom: 40px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Makes text pop against the image */
 }
 
 .hero-actions {
@@ -141,46 +147,41 @@ ul {
     gap: 20px;
 }
 
-.btn-play {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    font-weight: 500;
-}
-
-.play-icon {
-    background: white;
-    color: black;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 12px;
-}
-
+/* Stats Bar at the bottom */
 .hero-stats {
     position: absolute;
     bottom: 40px;
-    left: 20px;
-    right: 20px;
-    max-width: 1160px;
-    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-size: 14px;
     font-weight: 500;
 }
 
 .hero-stats .line {
     flex-grow: 1;
     height: 1px;
-    background: rgba(255,255,255,0.3);
-    margin: 0 20px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 0 30px;
 }
 
+/* Ensure the white button looks clean */
+.btn-white {
+    background-color: white;
+    color: var(--text-dark);
+    padding: 14px 32px;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.btn-white:hover {
+    transform: translateY(-2px);
+}
 /* About Section */
 .about-grid {
     display: grid;
