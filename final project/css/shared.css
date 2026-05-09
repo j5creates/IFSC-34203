@@ -614,3 +614,26 @@ footer {
         justify-content: flex-start;
     }
 }
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 32px; /* Much safer for phones */
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack everything in the footer */
+        text-align: center;
+    }
+
+    .nav-links {
+        display: none; /* Usually, you'd replace this with a mobile menu toggle */
+    }
+
+    .cta-buttons, .hero-actions {
+        flex-direction: column; /* Stack buttons on top of each other */
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%; /* Make buttons full-width for easier tapping */
+    }
+}
