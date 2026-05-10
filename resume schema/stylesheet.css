@@ -1,7 +1,7 @@
 /* CSS Custom Properties */
 
 :root{
-  --main-bg-color: #efefef;
+  --main-bg-color: #ffffff;
   --primary-type-color: #222222;
   --accent-color-1: #999999;
 }
@@ -269,4 +269,62 @@ main.container {
   padding-bottom:50px
 } 
   
+}
+@media screen and (min-width: 1024px) {
+ 
+  header.container,
+  main.container {
+    max-width: 1100px;
+    grid-template-columns: 32% auto;
+  }
+ 
+  main {
+    padding: 1px 40px;
+  }
+ 
+  #about {
+    grid-template-columns: 320px 1fr auto;
+  }
+ 
+}
+@media screen and (min-width: 1280px) {
+ 
+  header.container,
+  main.container {
+    max-width: 1280px;
+    grid-template-columns: 30% auto;
+  }
+ 
+  main {
+    padding: 1px 60px;
+  }
+ 
+  #about {
+    grid-template-columns: 340px 1fr auto;
+    gap: 3em;
+  }
+ 
+}
+@media (min-width: 375px) and (max-width: 429px) {
+  body {
+    font-size: 16px;
+    padding: 16px;
+  }
+}
+@media (min-width: 430px) and (max-width: 479px) {
+  body {
+    font-size: 17px;
+    padding: 20px;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  body {
+    font-size: 18px;
+    padding: 24px;
+  }
+}
+@media (max-width: 900px) and (orientation: landscape) {
+  nav {
+    height: 48px;   /* shrink the navbar */
+  }
 }
