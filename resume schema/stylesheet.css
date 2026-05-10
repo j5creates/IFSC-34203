@@ -170,8 +170,6 @@ dd {
   margin-right: 20px;
 }
 
-#skills {
-}
 #skills li {
   list-style-type: square;
 }
@@ -231,6 +229,21 @@ main.container {
 
 /* Media Queries */
 @media screen and (max-width: 767px) {
+    .related-links {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+  }
+
+  .related-links li {
+    margin-right: 0; /* gap handles spacing now */
+  }
+
+  .related-links a {
+    white-space: nowrap; /* prevents text breaking mid-word */
+    display: inline-block;
+  }
 
   /* Fix nav wrapping on small screens */
   nav ul {
@@ -289,11 +302,5 @@ main.container {
   grid-area:related;
   border-bottom:1px solid #999;
   padding-bottom:50px
-} 
-  
 }
-
-@media screen and (min-width:992px){
-  
-  
 }
