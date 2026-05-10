@@ -230,101 +230,26 @@ main.container {
 }
 
 /* Media Queries */
+@media screen and (max-width: 767px) {
 
-@media screen and (min-width:768px){
-  
- header.container{
-  max-width:900px;
+  /* Fix nav wrapping on small screens */
+  nav ul {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+    gap: 4px;
   }
- 
-  main.container{
-  max-width:900px;
-  grid-template-columns: 36.5% auto;  
-  grid-template-areas:
-    "title title"
-    "about about"
-    "skills experience"
-    ". education"
-    ;  
-  } 
-  
-  #about{
-  display:grid;
-  gap:2em;
-  grid-template-columns: 300px 1fr auto;
-  grid-template-areas:
-    "bio details details"
-    "related related related";
-}
-.bio{
-  grid-area:bio;
-}
-.details{
-  grid-area:details;
-}
-  
- .related-links{
-  grid-area:related;
-  border-bottom:1px solid #999;
-  padding-bottom:50px
-} 
-  
-}
-@media screen and (min-width: 1024px) {
- 
-  header.container,
-  main.container {
-    max-width: 1100px;
-    grid-template-columns: 32% auto;
+
+  /* Fix dl rows overflowing on narrow screens */
+  dl {
+    grid-template: auto / 8em 1fr;
   }
- 
-  main {
-    padding: 1px 40px;
-  }
- 
-  #about {
-    grid-template-columns: 320px 1fr auto;
-  }
- 
-}
-@media screen and (min-width: 1280px) {
- 
-  header.container,
-  main.container {
-    max-width: 1280px;
-    grid-template-columns: 30% auto;
-  }
- 
-  main {
-    padding: 1px 60px;
-  }
- 
-  #about {
-    grid-template-columns: 340px 1fr auto;
-    gap: 3em;
-  }
- 
-}
-@media (min-width: 375px) and (max-width: 429px) {
+
+  /* Prevent body padding from breaking container alignment */
   body {
-    font-size: 16px;
-    padding: 16px;
+    padding: 0;
   }
-}
-@media (min-width: 430px) and (max-width: 479px) {
-  body {
-    font-size: 17px;
-    padding: 20px;
-  }
-}
-@media (min-width: 480px) and (max-width: 767px) {
-  body {
-    font-size: 18px;
-    padding: 24px;
-  }
-}
-@media (max-width: 900px) and (orientation: landscape) {
-  nav {
-    height: 48px;   /* shrink the navbar */
+
+  .container {
+    width: 100%;
   }
 }
