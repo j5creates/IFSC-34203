@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serverse - Inclusive Care</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/shared.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <style>
     :root {
@@ -22,18 +23,7 @@ body {
     line-height: 1.6;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px 0;
-    background: #fff;
-}
 
-.logo { font-weight: bold; font-size: 1.5rem; }
-.nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-links a { text-decoration: none; color: #555; font-size: 0.9rem; }
 
 /* Hero Section */
 .hero-section {
@@ -108,24 +98,6 @@ body {
 .event-date { font-size: 2rem; font-weight: bold; text-align: center; line-height: 1; }
 .event-date span { display: block; font-size: 0.8rem; font-weight: normal; }
 
-/* Footer */
-.main-footer {
-    background: #000;
-    color: #fff;
-    padding: 80px 10%;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 1.5fr;
-    gap: 40px;
-}
-
-.footer-links ul { list-style: none; padding: 0; color: #bbb; font-size: 0.9rem; }
-.subscribe-box {
-    display: flex;
-    margin-top: 20px;
-}
 
 .subscribe-box input {
     background: transparent;
@@ -145,17 +117,19 @@ body {
 <body>
 
     <header class="navbar">
-        <div class="logo">Serverse</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About us</a></li>
-                <li><a href="whatwedo.html">What We Do</a></li>
-                <li><a href="media.html">Media</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="btn-dark">Donate</button>
+        <div class="container nav-container">
+            <div class="logo">Serverse</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="whatwedo.html">What We Do</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="donation.html" class="btn btn-dark">Donate</a>
+        </div>
     </header>
 
     <section class="hero-section">

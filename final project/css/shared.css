@@ -38,7 +38,6 @@ ul {
 .section-padding {
     padding: 80px 20px;
 }
-
 .section-subtitle {
     display: flex;
     align-items: center;
@@ -48,15 +47,6 @@ ul {
     color: var(--text-dark);
     margin-bottom: 20px;
     text-transform: uppercase;
-}
-
-.section-subtitle::before {
-    content: "";
-    display: inline-block;
-    width: 40px;
-    height: 2px;
-    background-color: var(--text-dark);
-    margin-right: 15px;
 }
 
 /* Buttons */
@@ -119,17 +109,20 @@ ul {
 }
 
 /* Hero Section */
-/* Hero Section */
 .hero {
     height: 100vh; /* Makes it full screen height */
     min-height: 600px;
     /* Uses your image as a background with a dark tint overlay */
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
-                url('../img/image.png') center/cover no-repeat;
+    url('../img/image.png') center/cover no-repeat;
     display: flex;
     align-items: center;
     position: relative;
     color: white;
+}
+.hero-stats {
+    display: flex;
+    gap: 80px;
 }
 
 .hero-content h1 {
@@ -145,29 +138,6 @@ ul {
     display: flex;
     align-items: center;
     gap: 20px;
-}
-
-/* Stats Bar at the bottom */
-.hero-stats {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.hero-stats .line {
-    flex-grow: 1;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.3);
-    margin: 0 30px;
 }
 
 /* Ensure the white button looks clean */
@@ -248,6 +218,95 @@ ul {
     border-radius: 20px;
 }
 
+/* Donations */
+
+.donation-section {
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%; /* This makes the black background stretch edge-to-edge */
+    padding: 80px 0; /* Vertical padding */
+    display: flex;
+    justify-content: center;
+}
+
+.donation-container {
+    max-width: 1200px; /* Limits text width so it's readable on huge monitors */
+    width: 90%; /* Provides a margin on mobile devices */
+    margin: 0 auto;
+}
+
+.donation-section h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.donation-section .subtitle {
+    color: #888;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 60px;
+    max-width: 850px;
+}
+
+/* Grid Layout - Stretches evenly */
+.stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Aligns items to the left like the image */
+    gap: 40px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    /* This ensures they sit in a row but wrap when the screen gets small */
+    flex: 0 1 auto; 
+    min-width: 200px;
+}
+
+.stat-item p {
+    font-size: 1rem;
+    color: #ffffff;
+    white-space: nowrap; /* Keeps the text on one line */
+}
+
+.stat-item strong {
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+/* Color Indicators */
+
+.green { background-color: #c5f1c1; }
+.purple { background-color: #a49cf1; }
+.cream { background-color: #f9f1d0; }
+.yellow { background-color: #fbd672; }
+.pink { background-color: #e599b4; }
+
+/* Responsive: Stack them on mobile */
+@media (max-width: 600px) {
+    .donation-section h1 { font-size: 1.8rem; }
+    .stats-grid { gap: 20px; }
+    .stat-item { width: 100%; }
+}
+
+/* Color Indicators */
+.dot {
+    width: 24px;
+    height: 14px;
+    border-radius: 4px;
+    margin-right: 12px;
+    flex-shrink: 0; /* Prevents the rectangle from squishing */
+}
+
+.green { background-color: #c5f1c1; }
+.purple { background-color: #a49cf1; }
+.cream { background-color: #f9f1d0; }
+.yellow { background-color: #fbd672; }
+.pink { background-color: #e599b4; }
+
 /* Projects */
 .projects h2 {
     font-size: 36px;
@@ -290,88 +349,6 @@ ul {
     opacity: 0.9;
 }
 
-/* Donations */
-.donations {
-    background-color: var(--bg-black);
-    color: white;
-}
-
-.donations-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.donations-text h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.donations-text p {
-    color: #999;
-    margin-bottom: 40px;
-}
-
-.legend {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.dot {
-    width: 16px;
-    height: 16px;
-    border-radius: 4px;
-    display: inline-block;
-}
-
-.color-1 { background-color: #a5ebd3; }
-.color-2 { background-color: #b09ff0; }
-.color-3 { background-color: #fbedb4; }
-.color-4 { background-color: #fff0d4; }
-.color-5 { background-color: #f6a5b6; }
-
-.donations-chart {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.donut {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    /* Creating a pure CSS Donut chart with conic-gradient */
-    background: conic-gradient(
-        #a5ebd3 0% 40%,
-        #b09ff0 40% 75%,
-        #fbedb4 75% 85%,
-        #fff0d4 85% 95%,
-        #f6a5b6 95% 100%
-    );
-    position: relative;
-}
-
-.donut::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 160px;
-    height: 160px;
-    background-color: var(--bg-black);
-    border-radius: 50%;
-}
-
 /* CTA Banner */
 .cta-banner {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
@@ -393,12 +370,6 @@ ul {
 }
 
 /* Events */
-.events > h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
-}
 
 .events-grid {
     display: grid;
@@ -409,7 +380,7 @@ ul {
 
 .event-card {
     background-color: var(--primary-green);
-    color: white;
+    color: rgb(255, 255, 255);
     border-radius: 12px;
     padding: 30px;
     display: flex;
@@ -448,29 +419,8 @@ ul {
     margin-bottom: 8px;
 }
 
-.event-subtitle::after {
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 1px;
-    background-color: white;
-    margin-left: 10px;
-}
-
 .event-info h3 {
     font-size: 20px;
-}
-
-.event-arrow {
-    width: 40px;
-    height: 40px;
-    background: white;
-    color: var(--primary-green);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
 }
 
 /* Footer */
