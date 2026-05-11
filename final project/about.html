@@ -8,407 +8,6 @@
     <link rel="stylesheet" href="css/shared.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-    <style>
-        :root {
-            --primary-dark: #1e2125;
-            --text-main: #1d2130;
-            --text-muted: #525560;
-            --bg-light-green: #eefdf2;
-            --accent-green: #4f9a5d;
-            --container-width: 1200px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        
-
-        .btn {
-            padding: 10px 24px;
-            border-radius: 4px;
-            font-weight: 500;
-            cursor: pointer;
-            border: none;
-            transition: opacity 0.3s;
-        }
-
-        .btn-dark {
-            background-color: var(--primary-dark);
-            color: white;
-        }
-
-        .btn-light {
-            background-color: white;
-            color: var(--text-main);
-        }
-
-        .btn-colored {
-            background-color: #e58787;
-            color: var(--text-main);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 40px;
-        }
-
-        .hero-top {
-            display: flex;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .hero-top-left {
-            flex: 1;
-        }
-
-        .section-label {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-transform: uppercase;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        .section-label::before {
-            content: "";
-            width: 40px;
-            height: 2px;
-            background-color: var(--text-main);
-        }
-
-        .hero-title {
-            font-size: 54px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .hero-top-right {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-top: 30px;
-        }
-
-        .hero-top-right h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .hero-top-right p {
-            color: var(--text-muted);
-        }
-
-        .hero-video {
-            width: 100%;
-            height: 500px;
-            background: url('https://placehold.co/1200x500/cccccc/999999?text=Video+Thumbnail') center/cover;
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .play-btn {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Mission & Vision Background Wrapper */
-        .bg-light-wrapper {
-            background-color: var(--bg-light-green);
-            padding: 80px 0;
-            margin-top: -150px;
-            padding-top: 200px; /* Offset for overlapping image if needed, else simple spacing */
-        }
-
-        /* Mission & Vision */
-        .mission-vision {
-            display: flex;
-            gap: 60px;
-            margin-bottom: 80px;
-        }
-
-        .mv-col {
-            flex: 1;
-        }
-
-        .mv-col h3 {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .mv-col h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        .mv-col p {
-            color: var(--text-muted);
-        }
-
-        /* Journey Section */
-        .journey-box {
-            background-color: var(--accent-green);
-            border-radius: 20px;
-            padding: 60px;
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            color: var(--text-main);
-            margin: 40px 0 80px;
-        }
-
-        .journey-left {
-            flex: 1;
-        }
-
-        .journey-left .section-label {
-            margin-bottom: 15px;
-        }
-
-        .journey-left .section-label::before {
-            display: none;
-        }
-
-        .journey-left h2 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .journey-left p {
-            margin-bottom: 40px;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .journey-stats {
-            display: flex;
-            gap: 40px;
-        }
-
-        .stat h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .stat p {
-            font-size: 12px;
-            margin: 0;
-        }
-
-        .journey-right {
-            flex: 1;
-        }
-
-        .journey-right img {
-            width: 100%;
-            border-radius: 15px;
-            display: block;
-        }
- 
-        /* CTA Banner */
-        .cta-banner {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1200x400/333333/cccccc?text=Children') center/cover;
-            border-radius: 20px;
-            padding: 80px 20px;
-            text-align: center;
-            color: white;
-            margin-bottom: 80px;
-        }
-
-        .cta-banner h2 {
-            font-size: 36px;
-            font-weight: 700;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.3;
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        /* Events */
-        .events {
-            padding-bottom: 80px;
-        }
-
-        .events-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .events-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #eaeaea;
-            margin-left: 20px;
-        }
-
-        .events-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .event-card {
-            background-color: var(--accent-green);
-            border-radius: 15px;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            color: var(--text-main);
-            gap: 30px;
-        }
-
-        .event-date {
-            text-align: center;
-        }
-
-        .event-date h3 {
-            font-size: 42px;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .event-date span {
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .event-details {
-            flex: 1;
-        }
-
-        .event-label {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .event-details h4 {
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-
-        .subscribe-form {
-            display: flex;
-        }
-
-        .subscribe-form input {
-            flex: 1;
-            padding: 15px 20px;
-            background: transparent;
-            border: 1px solid #333;
-            color: white;
-            border-radius: 4px 0 0 4px;
-            outline: none;
-        }
-
-        .subscribe-form button {
-            padding: 15px 25px;
-            background: white;
-            color: black;
-            border: none;
-            font-weight: 600;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-        }
-
-        @media (max-width: 900px) {
-            .hero-top, .mission-vision, .journey-box {
-                flex-direction: column;
-            }
-            .awards-grid, .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .events-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .bg-light-wrapper {
-                margin-top: 0;
-                padding-top: 60px;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .nav-links {
-                display: none;
-            }
-            .awards-grid, .team-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-title {
-                font-size: 40px;
-            }
-            .footer-links {
-                grid-template-columns: 1fr;
-            }
-            .cta-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
 <body>
 
     <header class="navbar">
@@ -427,94 +26,98 @@
         </div>
     </header>
 
-    <div class="container">
-        <header class="hero">
+    <main>
+        <section class="container section-padding">
             <div class="hero-top">
                 <div class="hero-top-left">
                     <div class="section-label">KNOW ABOUT US</div>
                     <h1 class="hero-title">We are a non-governmental organization</h1>
                 </div>
                 <div class="hero-top-right">
-                    <h4>We are a non-governmental organization dedicated to serving our community through impactful programs, advocacy, and support services that create positive and lasting change.</h4>
-                    <p>We provide community support and essential services to those in need while striving to expand our impact and reach more people through continued growth and outreach.</p>
+                    <h4>We are dedicated to serving our community through impactful programs, advocacy, and support services.</h4>
+                    <p>We provide community support and essential services to those in need while striving to expand our impact through continued growth and outreach.</p>
                 </div>
             </div>
-        </header>
-    </div>
+        </section>
 
-    <div class="bg-light-wrapper">
-        <div class="container">
-            <section class="mission-vision">
-                <div class="mv-col">
-                    <h3>OUR MISSION</h3>
-                    <h2>We make sure to provide inclusive care for children with special needs</h2>
-                    <p>We provide inclusive and compassionate care for children with special needs, ensuring they feel supported and valued. Our goal is to create an environment where every child can grow, learn, and thrive with the resources they need.</p>
+        <div class="bg-light-wrapper">
+            <div class="container section-padding">
+                <section class="mission-vision">
+                    <div class="mv-col">
+                        <h3>OUR MISSION</h3>
+                        <h2>We provide inclusive care for children with special needs</h2>
+                        <p>We ensure every child feels supported and valued, creating an environment where they can grow and thrive with the resources they need.</p>
+                    </div>
+                    <div class="mv-col">
+                        <h3>OUR VISION</h3>
+                        <h2>Provide more inclusive care to children around the world</h2>
+                        <p>We work to ensure every child has equal access to support and opportunities, creating a more compassionate global community.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="container section-padding">
+            <section class="journey-box">
+                <div class="journey-left">
+                    <div class="section-label">OUR JOURNEY</div>
+                    <h2>How we raised 15M</h2>
+                    <p>Through the help of dedicated supporters, we reached a milestone that represents our collective effort to create lasting change.</p>
+                    <div class="journey-stats">
+                        <div class="stat">
+                            <h3>15M+</h3>
+                            <p>Donations Received</p>
+                        </div>
+                        <div class="stat">
+                            <h3>400+</h3>
+                            <p>Volunteers</p>
+                        </div>
+                        <div class="stat">
+                            <h3>17+</h3>
+                            <p>Care homes</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="mv-col">
-                    <h3>OUR VISION</h3>
-                    <h2>Provide more inclusive care to children around the world</h2>
-                    <p>We work to provide more inclusive care to children around the world, ensuring every child has equal access to support and opportunities. Our mission is to create a more compassionate and accessible global community for all children.</p>
+                <div class="journey-right">
+                    <img src="https://placehold.co/500x350/cccccc/999999?text=Community+Image" alt="Community">
+                </div>
+            </section>
+
+            <section class="cta-banner">
+                <h2>You can contribute to provide a place for children with special needs!</h2>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary">Join as a volunteer</button>
+                    <button class="btn btn-white">Donate</button>
+                </div>
+            </section>
+
+            <section class="events section-padding">
+                <h2 class="events-title">Our Events</h2>
+                <div class="events-grid">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <h3 class="day">13</h3>
+                            <span class="month">APR</span>
+                        </div>
+                        <div class="event-info">
+                            <div class="event-label">NEXT EVENTS</div>
+                            <h3>A day with our wonderful children</h3>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">
+                            <h3 class="day">25</h3>
+                            <span class="month">APR</span>
+                        </div>
+                        <div class="event-info">
+                            <div class="event-label">NEXT EVENTS</div>
+                            <h3>Seminar: Caring for children with autism</h3>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
-    </div>
-        <section class="journey-box">
-            <div class="journey-left">
-                <div class="section-label">OUR JOURNEY</div>
-                <h2>How we raised 15M</h2>
-                <p>Through the help of many dedicated supporters, we raised 15M, reflecting a shared commitment to making a meaningful impact. This milestone represents our collective effort to create lasting change in the communities we serve.</p>
-                <div class="journey-stats">
-                    <div class="stat">
-                        <h3>15M+</h3>
-                        <p>Donation Received</p>
-                    </div>
-                    <div class="stat">
-                        <h3>400+</h3>
-                        <p>Volunteers</p>
-                    </div>
-                    <div class="stat">
-                        <h3>17+</h3>
-                        <p>Care homes</p>
-                    </div>
-                </div>
-            </div>
-            <div class="journey-right">
-                <img src="https://placehold.co/500x350/cccccc/999999?text=Community+Image" alt="Community">
-            </div>
-        </section>
-        <section class="cta-banner">
-            <h2>You can contribute to provide a place for children with special needs!</h2>
-            <div class="cta-buttons">
-                <button class="btn btn-colored">Join as a volunteer</button>
-                <button class="btn btn-light">Donate</button>
-            </div>
-        </section>
-
-        <section class="events">
-            <h2 class="events-title">Our Events</h2>
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">
-                        <h3>13</h3>
-                        <span>APR</span>
-                    </div>
-                    <div class="event-details">
-                        <div class="event-label">NEXT EVENTS</div>
-                        <h4>A day with our wonderful children</h4>
-                </div>
-                <div class="event-card">
-                    <div class="event-date">
-                        <h3>25</h3>
-                        <span>APR</span>
-                    </div>
-                    <div class="event-details">
-                        <div class="event-label">NEXT EVENTS</div>
-                        <h4>Seminar: Caring for children with autism</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+    </main>
 
     <footer>
         <div class="container footer-grid">

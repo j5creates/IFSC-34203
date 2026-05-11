@@ -139,7 +139,46 @@ ul {
     align-items: center;
     gap: 20px;
 }
+/* Specific Hero for What We Do */
+section.hero.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    height: auto;
+    min-height: 500px;
+    background: none; /* Removing the background image from shared.css */
+    color: var(--text-dark);
+    padding: 80px 20px;
+}
 
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    margin: 20px 0;
+    text-shadow: none; /* Removing shadow from shared.css */
+    color: var(--text-dark);
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 24px; /* Rounded corners like the screenshot */
+    display: block;
+}
+
+.overline {
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 14px;
+    color: var(--text-dark);
+}
 /* Ensure the white button looks clean */
 .btn-white {
     background-color: white;
@@ -216,6 +255,50 @@ ul {
     background: url('https://images.unsplash.com/photo-1544928147-79a2dbc1f389?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
     height: 500px;
     border-radius: 20px;
+}
+.services {
+    background-color: var(--light-green);
+    padding: 80px 0;
+}
+
+.services h2 {
+    font-size: 42px;
+    margin-bottom: 50px;
+    max-width: 800px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    gap: 40px;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: var(--text-gray);
+    font-size: 15px;
+}
+/* Project Heading Alignment */
+.projects.container {
+    padding: 80px 20px;
+}
+
+/* Accent button for the "Join as volunteer" */
+.btn-accent {
+    background-color: var(--primary-red);
+    color: white;
+}
+
+.cta-banner {
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Donations */
@@ -421,6 +504,48 @@ ul {
 
 .event-info h3 {
     font-size: 20px;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.event-card {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.event-date .day {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.event-date .month {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Ensure the sections are flush */
+.events {
+    padding-bottom: 80px; 
+    /* If the background of events is white, ensure the footer has no top margin */
+}
+
+footer {
+    margin-top: 0;
 }
 
 /* Footer */

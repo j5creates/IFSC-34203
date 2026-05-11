@@ -8,462 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <style>
-
-/* ── VOLUNTEER POPUP ── */
-.pop-ov {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.55);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 999;
-  opacity: 0; pointer-events: none;
-  transition: opacity .25s;
-}
-.pop-ov.open { opacity: 1; pointer-events: all; }
-
-.pop {
-  background: #fff; border-radius: 20px;
-  padding: 44px 48px 48px;
-  width: 100%; max-width: 640px;
-  position: relative;
-  box-shadow: 0 32px 80px rgba(0,0,0,.45);
-  transform: translateY(24px) scale(.97);
-  transition: transform .3s cubic-bezier(.22,1,.36,1);
-}
-.pop-ov.open .pop { transform: translateY(0) scale(1); }
-
-.pop-x {
-  position: absolute; top: 20px; right: 20px;
-  width: 40px; height: 40px; border-radius: 10px;
-  background: #18191f; color: #fff;
-  border: none; font-size: 16px; cursor: pointer;
-}
-
-.pop h3 {
-  font-size: 2rem; font-weight: 800;
-  color: #18191f; margin-bottom: 12px;
-}
-
-.pop-form { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
-
-.pop-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-.pop-form input,
-.pop-form textarea {
-  width: 100%; font-family: inherit; font-size: 15px;
-  background: transparent; border: none;
-  border-bottom: 1.5px solid #d0d2db;
-  padding: 8px 0 10px; outline: none;
-  transition: border-color .2s;
-}
-.pop-form input:focus { border-bottom-color: #18191f; }
-
-.pop-form textarea {
-  border: 1.5px solid #d0d2db;
-  border-radius: 10px; padding: 14px 16px;
-  min-height: 120px; resize: none;
-}
-.pop-form textarea:focus { border-color: #18191f; }
-
-
-
-/* --- WHAT WE DO css --- */
-:root {
-    --text-main: #1a1a2e;
-    --text-muted: #64748b;
-    --bg-light-green: #eefcf2;
-    --bg-dark: #0f0f11;
-    --brand-dark: #1e2029;
-    --brand-green: #4ade80;
-    --brand-green-dark: #3fb56b;
-    --brand-salmon: #f28b82;
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-family);
-    color: var(--text-main);
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* --- Buttons --- */
-.btn {
-    padding: 12px 24px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-}
-
-.btn-dark {
-    background-color: var(--brand-dark);
-    color: white;
-}
-
-.btn-light {
-    background-color: white;
-    color: var(--text-main);
-}
-
-.btn-accent {
-    background-color: var(--brand-salmon);
-    color: white;
-}
-
-/* Typography Overlines */
-.overline {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.overline::before {
-    content: "";
-    display: inline-block;
-    width: 40px;
-    height: 2px;
-    background-color: var(--text-muted);
-    margin-right: 15px;
-}
-
-
-
-/* --- Hero Section --- */
-.hero {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    padding: 80px 20px;
-}
-
-.hero-content {
-    flex: 1; /* Takes up 50% width */
-}
-
-.hero-content h1 {
-    font-size: 48px;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: var(--text-main);
-}
-
-.hero-content p {
-    color: var(--text-muted);
-    font-size: 16px;
-    max-width: 90%;
-}
-
-.hero-image {
-    flex: 1; /* Takes up 50% width */
-}
-
-.hero-image img {
-    width: 100%;
-    border-radius: 20px;
-    object-fit: cover;
-}
-
-/* --- Services Section --- */
-.services {
-    background-color: var(--bg-light-green);
-    padding: 80px 0;
-}
-
-.services h2 {
-    font-size: 36px;
-    margin-bottom: 50px;
-    max-width: 600px;
-}
-
-.services-grid {
-    display: grid;
-    /* This creates responsive columns: 3 columns on desktop, 1 on mobile */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-.service-card {
-    display: flex;
-    gap: 15px;
-    align-items: flex-start;
-}
-
-.icon-box {
-    background-color: var(--brand-dark);
-    color: white;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    font-size: 20px;
-    flex-shrink: 0;
-}
-
-.service-text h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-.service-text p {
-    color: var(--text-muted);
-    font-size: 14px;
-}
-
-/* --- Projects Section --- */
-.projects {
-    padding: 80px 20px;
-}
-
-.projects h2 {
-    font-size: 36px;
-    margin-bottom: 50px;
-    max-width: 500px;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.project-card {
-    background-size: cover;
-    background-position: center;
-    padding: 40px 30px;
-    border-radius: 20px;
-    color: white;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-}
-
-.project-card h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.project-card p {
-    font-size: 14px;
-    margin-bottom: 25px;
-    opacity: 0.9;
-}
-
-/* --- CTA Banner --- */
-.cta-banner {
-    margin-bottom: 80px;
-}
-
-.cta-content {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&auto=format&fit=crop') center/cover;
-    border-radius: 20px;
-    padding: 80px 20px;
-    text-align: center;
-    color: white;
-}
-
-.cta-content h2 {
-    font-size: 36px;
-    max-width: 700px;
-    margin: 0 auto 30px auto;
-}
-
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-/* --- Events Section --- */
-.events {
-    padding-bottom: 80px;
-}
-
-.section-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 40px;
-}
-
-.section-header h2 {
-    font-size: 32px;
-}
-
-.section-header .line {
-    flex-grow: 1;
-    height: 1px;
-    background-color: #e2e8f0;
-}
-
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 20px;
-}
-
-.event-card {
-    background-color: var(--brand-green-dark);
-    color: white;
-    padding: 30px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.event-date {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.event-date .day {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.event-date .month {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.event-details {
-    flex-grow: 1;
-}
-
-.event-label {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    opacity: 0.8;
-}
-
-.event-label::after {
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 1px;
-    background-color: white;
-    margin-left: 10px;
-}
-
-.event-details h3 {
-    font-size: 22px;
-}
-
-.arrow-btn {
-    background-color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    color: var(--brand-green-dark);
-}
-
-.link-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.link-column h4 {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.link-column a {
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.link-column a:hover {
-    color: white;
-}
-
-
-.subscribe-form {
-    display: flex;
-}
-
-.subscribe-form input {
-    padding: 12px 15px;
-    background: transparent;
-    border: 1px solid #333;
-    border-right: none;
-    color: white;
-    outline: none;
-    border-radius: 4px 0 0 4px;
-    width: 250px;
-}
-
-.subscribe-form .btn {
-    border-radius: 0 4px 4px 0;
-}
-
-/* --- Basic Responsive Adjustments --- */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 40px 20px;
-    }
-    .overline::before {
-        display: none;
-    }
-    .overline {
-        justify-content: center;
-    }
-    .nav-links {
-        display: none; /* Hide links on mobile for simplicity */
-    }
-    
-    .subscribe-form {
-        flex-direction: column;
-    }
-    .subscribe-form input {
-        width: 100%;
-        border-right: 1px solid #333;
-        border-radius: 4px;
-        margin-bottom: 10px;
-    }
-    .subscribe-form .btn {
-        border-radius: 4px;
-    }
-}
-  </style>
-
     <header class="navbar">
         <div class="container nav-container">
             <div class="logo">Serverse</div>
@@ -496,42 +40,36 @@ body {
             <h2>What we do for our kids with special needs</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="icon-box">🏠</div>
                     <div class="service-text">
                         <h3>Family support</h3>
                         <p>We provide family support to help create stable, caring home environments where children can thrive.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="icon-box">❤️</div>
                     <div class="service-text">
                         <h3>Health benefits</h3>
                         <p>We offer health resources and support to ensure children have access to the care they need to stay healthy and strong.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="icon-box">🎓</div>
                     <div class="service-text">
                         <h3>Education</h3>
                         <p>We provide academic support through tutoring and educational assistance to help children succeed in school.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="icon-box">💧</div>
                     <div class="service-text">
                         <h3>Basic amenities</h3>
                         <p>We help provide basic amenities to ensure individuals and families have access to essential needs like food, clean water, and shelter.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="icon-box">🤝</div>
                     <div class="service-text">
                         <h3>Therapy</h3>
                         <p>We provide access to therapy services that support mental and emotional well-being for those in need.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="icon-box">📢</div>
                     <div class="service-text">
                         <h3>Public outreach</h3>
                         <p>We engage in public outreach to raise awareness, share resources, and connect communities with the support they need.</p>
@@ -588,7 +126,6 @@ body {
                     <span class="event-label">NEXT EVENTS</span>
                     <h3>A day with our wonderful children</h3>
                 </div>
-                <button class="arrow-btn">→</button>
             </div>
             <div class="event-card">
                 <div class="event-date">
@@ -599,7 +136,6 @@ body {
                     <span class="event-label">NEXT EVENTS</span>
                     <h3>Seminar: Caring for children with autism</h3>
                 </div>
-                <button class="arrow-btn">→</button>
             </div>
         </div>
     </section>
