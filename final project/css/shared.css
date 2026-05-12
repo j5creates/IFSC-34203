@@ -7,37 +7,38 @@
     --bg-black: #0b0b0b;
     --border-color: #e5e5e5;
 }
-
+ 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+ 
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
 }
-
+ 
 a {
     text-decoration: none;
     color: inherit;
 }
-
+ 
 ul {
     list-style: none;
 }
-
+ 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
+ 
 .section-padding {
     padding: 80px 20px;
 }
+ 
 .section-subtitle {
     display: flex;
     align-items: center;
@@ -48,7 +49,7 @@ ul {
     margin-bottom: 20px;
     text-transform: uppercase;
 }
-
+ 
 /* Buttons */
 .btn {
     display: inline-block;
@@ -60,46 +61,63 @@ ul {
     border: none;
     transition: opacity 0.3s ease;
 }
-
+ 
 .btn:hover {
     opacity: 0.9;
 }
-
+ 
 .btn-dark {
     background-color: #1a202c;
     color: white;
 }
-
+ 
+/* .btn-white defined once — includes hover from the second declaration */
 .btn-white {
     background-color: white;
     color: var(--text-dark);
+    padding: 14px 32px;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
 }
-
-.btn-primary {
-    background-color: var(--primary-red);
-    color: white;
+ 
+.btn-white:hover {
+    transform: translateY(-2px);
 }
-
+ 
 /* Specific Small Button for Hero */
 .btn-white.hero-btn {
     padding: 10px 20px;
     font-size: 13px;
     font-weight: 600;
 }
-
+ 
+.btn-primary {
+    background-color: var(--primary-red);
+    color: white;
+}
+ 
+.btn-light {
+    background-color: white;
+    color: var(--text-dark);
+}
+ 
+.btn-accent {
+    background-color: var(--primary-red);
+    color: white;
+}
+ 
 /* Navbar */
 .navbar {
     padding: 20px 0;
     border-bottom: 1px solid var(--border-color);
 }
-
+ 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-/* Correct logo left alignment and fix potential weirdness */
+ 
 .logo {
     display: flex;
     justify-content: flex-start;
@@ -108,21 +126,19 @@ ul {
     font-size: 24px;
     font-weight: 700;
 }
-
+ 
 .nav-links {
     display: flex;
     gap: 30px;
 }
-
+ 
 .nav-links a {
     font-weight: 500;
     color: var(--text-gray);
     font-size: 15px;
 }
-
-/* --- HOMEPAGE HERO SPECIFIC OVERRIDES --- */
-
-/* Specific, targeted styles for homepage hero to prevent conflicts */
+ 
+/* Homepage Hero */
 .home-hero {
     height: 100vh;
     min-height: 600px;
@@ -133,43 +149,44 @@ ul {
     position: relative;
     color: white;
 }
-
+ 
 .home-hero .hero-content {
     max-width: 650px;
 }
-
+ 
 .home-hero h1 {
-    font-size: 72px; /* Matches visual large scale */
+    font-size: 72px;
     font-weight: 700;
     line-height: 1.1;
-    color: white !important; /* Force white for homepage */
+    color: white !important;
     text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
-
+ 
 .home-hero .hero-actions {
     display: flex;
     align-items: center;
     gap: 20px;
     margin-top: 40px;
 }
-
+ 
 .home-hero .hero-stats {
     display: flex;
-    flex-direction: column; /* Stack stats exactly like visual */
+    flex-direction: column;
     gap: 15px;
     color: white;
 }
-
-/* --- VISUAL TWEAKS --- */
-
-/* Make stats bullet points */
+ 
 .stat-item {
+    display: flex;
+    align-items: center;
+    flex: 0 1 auto;
+    min-width: 200px;
     position: relative;
     padding-left: 18px;
 }
-
+ 
 .stat-item::before {
-    content: "•"; /* Bullet symbol */
+    content: "•";
     color: white;
     font-size: 1.2em;
     position: absolute;
@@ -178,32 +195,24 @@ ul {
     transform: translateY(-50%);
     font-weight: bold;
 }
-
-
-/* Cleanup old bad rules lower down that might cause collisions */
-/* Specifically remove this generic padded-container version of hero that will conflict everywhere */
+ 
+.stat-item p {
+    font-size: 1rem;
+    color: #ffffff;
+    white-space: nowrap;
+}
+ 
+.stat-item strong {
+    font-weight: bold;
+    margin-right: 4px;
+}
+ 
+/* Remove conflicting generic hero rule */
 section.hero.container {
     display: none;
 }
-
-/* Ensure the white button looks clean */
-.btn-white {
-    background-color: white;
-    color: var(--text-dark);
-    padding: 14px 32px;
-    border-radius: 4px;
-    transition: transform 0.2s ease;
-}
-
-.btn-white:hover {
-    transform: translateY(-2px);
-}
-.btn-light {
-    background-color: white;
-    color: var(--text-dark);
-}
-/* About Page Specific Styles */
-
+ 
+/* About Page */
 .section-label {
     font-size: 14px;
     font-weight: 700;
@@ -212,73 +221,60 @@ section.hero.container {
     margin-bottom: 16px;
     text-transform: uppercase;
 }
-
-/* Intro Section */
+ 
 .about-intro-section {
     padding: 100px 20px 60px 20px;
 }
-
+ 
 .about-intro-section h1 {
     font-size: 56px;
     line-height: 1.1;
     max-width: 800px;
     margin-bottom: 40px;
 }
-
+ 
 .intro-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr; /* Matches the staggered text look */
+    grid-template-columns: 1.5fr 1fr;
     gap: 40px;
     margin-top: 40px;
 }
-
+ 
 .intro-main-text p {
     font-size: 18px;
     line-height: 1.6;
     color: var(--text-dark);
 }
-
+ 
 .intro-sub-text p {
     font-size: 14px;
     color: var(--text-gray);
     padding-top: 10px;
 }
-
-/* Mission Vision Section */
+ 
 .bg-pale-green {
-    background-color: #f2faf5; /* The specific light green from your image */
+    background-color: #f2faf5;
     width: 100%;
 }
-
+ 
 .mission-vision-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
 }
-
+ 
 .mv-item h2 {
     font-size: 32px;
     line-height: 1.2;
     margin-bottom: 20px;
 }
-
+ 
 .mv-item p {
     color: var(--text-gray);
     font-size: 16px;
     line-height: 1.6;
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .about-intro-section h1 {
-        font-size: 36px;
-    }
-    .intro-grid, .mission-vision-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
-
+ 
 .journey-card-green {
     background-color: var(--primary-green);
     border-radius: 20px;
@@ -288,52 +284,52 @@ section.hero.container {
     gap: 40px;
     margin-bottom: 80px;
 }
-
+ 
 .journey-content {
     flex: 1;
     color: white;
 }
-
+ 
 .journey-content h2 {
     font-size: 38px;
     margin: 15px 0;
     line-height: 1.2;
 }
-
+ 
 .journey-stats-row {
     display: flex;
     gap: 30px;
     margin-top: 30px;
 }
-
+ 
 .stat-unit h3 {
     font-size: 28px;
     font-weight: 700;
 }
-
+ 
 .stat-unit p {
     font-size: 12px;
     opacity: 0.8;
 }
-
+ 
 .journey-image {
     flex: 1;
 }
-
+ 
 .journey-image img {
     width: 100%;
     border-radius: 15px;
     display: block;
 }
-
-/* --- PROJECTS SECTION REFINEMENT --- */
+ 
+/* Projects Section */
 .project-card-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     margin-top: 40px;
 }
-
+ 
 .project-img-card {
     height: 420px;
     border-radius: 16px;
@@ -342,7 +338,7 @@ section.hero.container {
     background-size: cover;
     background-position: center;
 }
-
+ 
 .card-overlay {
     position: absolute;
     bottom: 0;
@@ -352,18 +348,18 @@ section.hero.container {
     background: linear-gradient(transparent, rgba(0,0,0,0.85));
     color: white;
 }
-
+ 
 .card-overlay h3 {
     font-size: 20px;
     margin-bottom: 10px;
 }
-
+ 
 .card-overlay p {
     font-size: 13px;
     margin-bottom: 20px;
     opacity: 0.9;
 }
-
+ 
 .btn-white-small {
     background: white;
     color: #1a1a1a;
@@ -372,85 +368,102 @@ section.hero.container {
     font-size: 13px;
     font-weight: 600;
 }
-
-/* --- CTA BANNER (Center Image Section) --- */
+ 
+/* CTA Banner */
 .cta-banner {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/children-bg.jpg'); /* Ensure path is correct */
-    background-size: cover;
-    background-position: center;
-    border-radius: 16px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+    border-radius: 20px;
     padding: 80px 40px;
     text-align: center;
-    margin: 80px 0;
+    margin: 80px auto 40px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
+ 
 .cta-banner h2 {
-    font-size: 32px;
+    font-size: 36px;
     max-width: 600px;
     margin: 0 auto 30px;
     line-height: 1.3;
 }
-
+ 
 .cta-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
-
-/* --- EVENTS SECTION --- */
+ 
+/* Events Section */
+.events {
+    padding-bottom: 80px;
+}
+ 
 .events-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
     margin-top: 30px;
 }
-
+ 
 .event-card {
     background-color: var(--primary-green);
+    color: white;
     border-radius: 12px;
     padding: 30px;
     display: flex;
     align-items: center;
-    color: white;
+    justify-content: space-between;
     transition: transform 0.3s ease;
 }
-
+ 
 .event-card:hover {
     transform: translateY(-5px);
 }
-
+ 
 .event-date {
     display: flex;
     flex-direction: column;
-    margin-right: 25px;
+    align-items: flex-start;
+    margin-right: 20px;
 }
-
+ 
 .event-date .day {
     font-size: 36px;
     font-weight: 700;
     line-height: 1;
 }
-
+ 
 .event-date .month {
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1px;
 }
-
-.event-info h3 {
-    font-size: 18px;
-    line-height: 1.4;
-    max-width: 250px;
+ 
+.event-info {
+    flex-grow: 1;
 }
-
-/* --- CONTACT PAGE SPECIFIC STYLES --- */
-
-/* Hero Section Overrides */
+ 
+.event-subtitle {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+ 
+.event-info h3 {
+    font-size: 20px;
+}
+ 
+/* Contact Page */
 section.hero {
-    background-color: var(--light-green); /* Light green from the screenshot */
-    background-image: none; /* Remove any background images from shared styles */
+    background-color: var(--light-green);
+    background-image: none;
     height: auto;
     min-height: 450px;
     color: var(--text-dark);
@@ -458,14 +471,14 @@ section.hero {
     align-items: center;
     padding: 80px 0;
 }
-
+ 
 .hero-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 100px;
     align-items: flex-start;
 }
-
+ 
 .hero-left h1 {
     font-size: 56px;
     line-height: 1.1;
@@ -473,71 +486,68 @@ section.hero {
     color: var(--text-dark);
     text-shadow: none;
 }
-
+ 
 .hero-left p {
     color: var(--text-gray);
     font-size: 16px;
     max-width: 450px;
 }
-
-/* Right Side Info Blocks */
+ 
 .info-block {
     margin-bottom: 30px;
 }
-
+ 
 .info-block h3 {
     font-size: 20px;
     margin-bottom: 8px;
     font-weight: 700;
 }
-
+ 
 .info-block p {
     color: var(--text-dark);
     font-size: 15px;
 }
-
+ 
 .socials {
     display: flex;
     gap: 20px;
     margin-top: 40px;
 }
-
+ 
 .socials a {
     font-weight: bold;
     font-size: 18px;
 }
-
-/* Contact Form Section */
+ 
 .form-section {
     padding: 100px 0;
     background-color: white;
 }
-
+ 
 .contact-form {
     max-width: 900px;
     margin: 0 auto;
 }
-
+ 
 .contact-form .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     margin-bottom: 40px;
 }
-
+ 
 .input-group {
     display: flex;
     flex-direction: column;
 }
-
+ 
 .input-group label {
     font-size: 12px;
     font-weight: 700;
     color: var(--text-gray);
     margin-bottom: 15px;
 }
-
-/* Underline style for inputs */
+ 
 .input-group input {
     border: none;
     border-bottom: 1px solid #1a1a1a;
@@ -546,8 +556,7 @@ section.hero {
     font-size: 16px;
     outline: none;
 }
-
-/* Textarea style */
+ 
 .input-group textarea {
     border: 1px solid #1a1a1a;
     border-radius: 4px;
@@ -557,17 +566,16 @@ section.hero {
     font-size: 16px;
     resize: none;
 }
-
+ 
 .input-group.full {
     margin-top: 40px;
 }
-
-/* Button Alignment and Style */
+ 
 .center {
     text-align: center;
     margin-top: 50px;
 }
-
+ 
 .btn-send {
     background-color: var(--primary-red);
     color: white;
@@ -579,215 +587,30 @@ section.hero {
     cursor: pointer;
     transition: transform 0.2s ease;
 }
-
+ 
 .btn-send:hover {
     transform: scale(1.02);
     opacity: 0.9;
 }
-
-/* Responsive Fixes */
-@media (max-width: 850px) {
-    .hero-grid, .contact-form .row {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .hero-left h1 {
-        font-size: 40px;
-    }
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 900px) {
-    .journey-card-green, .events-grid, .project-card-grid {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-    }
-    .journey-card-green { padding: 30px; }
-}
-
-
-footer {
-    margin-top: 0;
-}
-
-/* Footer */
-footer {
-    background-color: var(--bg-black);
-    color: white;
-    padding: 80px 0;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 2fr;
-    gap: 40px;
-}
-
-.footer-logo {
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.footer-links h4 {
-    font-size: 14px;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.footer-links ul li {
-    margin-bottom: 12px;
-}
-
-.footer-links ul li a {
-    color: #999;
-    font-size: 14px;
-}
-
-.footer-subscribe h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.subscribe-form {
-    display: flex;
-    gap: 10px;
-}
-
-.subscribe-form input {
-    flex-grow: 1;
-    background: transparent;
-    border: 1px solid #333;
-    padding: 12px 16px;
-    border-radius: 4px;
-    color: white;
-}
-
-.subscribe-form input::placeholder {
-    color: #666;
-}
-
-.project-detail .overline {
-    display: block;
-    margin-bottom: 16px;
-    font-size: 14px;
-    letter-spacing: 2px;
-    font-weight: 700;
-    color: var(--text-dark);
-}
-
-.project-title {
-    font-size: 48px;
-    line-height: 1.2;
-    margin-bottom: 32px;
-    max-width: 800px;
-}
-
-.project-description {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    max-width: 850px;
-    margin-bottom: 48px;
-    color: var(--text-gray);
-}
-
-/* Feature Image */
-.project-feature-image {
-    margin-bottom: 64px;
-}
-
-.rounded-image-large {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 24px;
-    display: block;
-}
-
-/* Mission Section */
-.project-mission {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.mission-title {
-    font-size: 36px;
-    margin-bottom: 24px;
-}
-
-.mission-content p {
-    color: var(--text-gray);
-    margin-bottom: 24px;
-}
-
-.mission-list {
-    margin-bottom: 32px;
-}
-
-.mission-list li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 12px;
-    font-weight: 500;
-    color: var(--text-dark);
-}
-
-/* Custom Bullet Point */
-.mission-list li::before {
-    content: "•";
-    color: var(--bg-black);
-    font-weight: bold;
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em;
-}
-
-.mission-footer {
-    padding-left: 20px;
-    font-size: 18px;
-    color: var(--text-dark) !important;
-}
-
-.stats-highlight-section {
-    background-color: var(--light-green);
-    padding: 60px 0;
-    margin: 60px 0;
-    border-radius: 0; /* Full width background */
-}
-
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-.stat-box h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
-}
-
-.stat-box p {
-    font-size: 14px;
-    color: var(--text-gray);
-}
+ 
+/* About Grid */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
 }
-
+ 
 .about-text h2 {
     font-size: 36px;
     margin-bottom: 20px;
 }
-
+ 
 .about-text p {
     color: var(--text-gray);
     margin-bottom: 30px;
 }
-
+ 
 .about-image-container {
     background: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
     height: 400px;
@@ -796,331 +619,93 @@ footer {
     align-items: center;
     justify-content: center;
 }
+ 
 /* Services */
-
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.services-content h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
-    max-width: 400px;
-}
-
-.service-list li {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.service-info h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-.service-info p {
-    color: var(--text-gray);
-    font-size: 14px;
-}
-
-.services-image {
-    background: url('image copy 2.png') center/cover;
-    height: 500px;
-    border-radius: 20px;
-}
-
-.services-image-container img{
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-}
-
-.services-image-container{
-    grid-column: 3;
-}
-
-.rounded-image {
-    width: 100%;
-    max-width: 500px; /* Prevents image from becoming too massive */
-    height: auto;
-    border-radius: 28px; /* The specific rounded look from your example */
-    object-fit: cover;
-    display: block;
-}
 .services {
     background-color: var(--light-green);
     padding: 80px 0;
 }
-
+ 
 .services h2 {
     font-size: 42px;
     margin-bottom: 50px;
     max-width: 800px;
 }
-
+ 
+/* Services uses 3-column grid for cards; 2-col layout grid handled separately */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
 }
-
+ 
+.services-content h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    max-width: 400px;
+}
+ 
+.service-list li {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+ 
+.service-info h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+ 
+.service-info p {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+ 
 .service-card h3 {
     font-size: 20px;
     margin-bottom: 12px;
 }
-
+ 
 .service-card p {
     color: var(--text-gray);
     font-size: 15px;
 }
-
-/* Project Heading Alignment */
-.projects.container {
-    padding: 80px 20px;
-}
-
-/* Accent button for the "Join as volunteer" */
-.btn-accent {
-    background-color: var(--primary-red);
-    color: white;
-}
-
-.cta-banner {
-    margin: 40px auto;
+ 
+.services-image-container img {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Donations */
-
-.donation-section {
-    background-color: #000000;
-    color: #ffffff;
-    width: 100%; /* This makes the black background stretch edge-to-edge */
-    padding: 80px 0; /* Vertical padding */
-    display: flex;
-    justify-content: center;
-}
-
-.donation-container {
-    max-width: 1200px; /* Limits text width so it's readable on huge monitors */
-    width: 90%; /* Provides a margin on mobile devices */
-    margin: 0 auto;
-}
-
-.donation-section h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
-
-.donation-section .subtitle {
-    color: #888;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 60px;
-    max-width: 850px;
-}
-/* --- Donation Page Specifics --- */
-
-/* Hero Section */
-.donation-hero {
-    background-color: var(--light-green);
-    padding: 100px 0;
-}
-
-.hero-flex {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-
-.hero-text {
-    flex: 1;
-}
-
-.hero-text h1 {
-    font-size: 52px;
-    line-height: 1.1;
-    margin: 15px 0 25px;
-    color: var(--text-dark);
-}
-
-.hero-text p {
-    color: var(--text-gray);
-    margin-bottom: 30px;
-    max-width: 450px;
-}
-
-.hero-image-wrap {
-    flex: 1;
-}
-
-.rounded-img {
+    justify-content: flex-end;
     width: 100%;
-    border-radius: 30px;
+}
+ 
+.services-image-container {
+    grid-column: 3;
+}
+ 
+.rounded-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 28px;
+    object-fit: cover;
     display: block;
 }
-
-/* Contribution Overview Grid */
-.overview-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 80px;
-    align-items: flex-start;
-}
-
-.overview-left h2 {
-    font-size: 42px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.overview-right .small-title {
-    display: block;
-    font-weight: 700;
-    font-size: 13px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-}
-
-.overview-right p, .overview-left p {
-    color: var(--text-gray);
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-/* Usage Section Grid */
-.usage-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-    border-top: 1px solid var(--border-color);
-    padding-top: 60px;
-}
-
-.usage-title h2 {
-    font-size: 36px;
-    line-height: 1.2;
-}
-
-.usage-content p {
-    color: var(--text-gray);
-    font-size: 15px;
-}
-
-/* CTA Card Overrides */
-.cta-card {
-    background-size: cover;
-    background-position: center;
-    padding: 100px 40px;
-    border-radius: 24px;
-    text-align: center;
-    color: white;
-    margin-bottom: 80px;
-}
-
-.cta-card h2 {
-    font-size: 38px;
-    max-width: 700px;
-    margin: 0 auto 40px;
-}
-
-.cta-btns {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .hero-flex, .overview-grid, .usage-grid {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .hero-text h1 {
-        font-size: 36px;
-    }
-}
-
-/* Grid Layout - Stretches evenly */
-.stats-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Aligns items to the left like the image */
-    gap: 40px;
-}
-
-.stat-item {
-    display: flex;
-    align-items: center;
-    /* This ensures they sit in a row but wrap when the screen gets small */
-    flex: 0 1 auto; 
-    min-width: 200px;
-}
-
-.stat-item p {
-    font-size: 1rem;
-    color: #ffffff;
-    white-space: nowrap; /* Keeps the text on one line */
-}
-
-.stat-item strong {
-    font-weight: bold;
-    margin-right: 4px;
-}
-
-/* Color Indicators */
-
-.green { background-color: #c5f1c1; }
-.purple { background-color: #a49cf1; }
-.cream { background-color: #f9f1d0; }
-.yellow { background-color: #fbd672; }
-.pink { background-color: #e599b4; }
-
-/* Responsive: Stack them on mobile */
-@media (max-width: 600px) {
-    .donation-section h1 { font-size: 1.8rem; }
-    .stats-grid { gap: 20px; }
-    .stat-item { width: 100%; }
-}
-
-/* Color Indicators */
-.dot {
-    width: 24px;
-    height: 14px;
-    border-radius: 4px;
-    margin-right: 12px;
-    flex-shrink: 0; /* Prevents the rectangle from squishing */
-}
-
-.green { background-color: #c5f1c1; }
-.purple { background-color: #a49cf1; }
-.cream { background-color: #f9f1d0; }
-.yellow { background-color: #fbd672; }
-.pink { background-color: #e599b4; }
-
+ 
 /* Projects */
 .projects h2 {
     font-size: 36px;
     margin-bottom: 40px;
 }
-
+ 
+.projects.container {
+    padding: 80px 20px;
+}
+ 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
-
+ 
 .project-card {
     height: 400px;
     border-radius: 20px;
@@ -1135,279 +720,536 @@ footer {
     background-size: cover;
     background-position: center;
 }
-
+ 
 .card-1 { background-image: url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); }
 .card-2 { background-image: url('https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); }
 .card-3 { background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); }
-
+ 
 .project-card h3 {
     font-size: 24px;
     margin-bottom: 15px;
 }
-
+ 
 .project-card p {
     font-size: 14px;
     margin-bottom: 20px;
     opacity: 0.9;
 }
 
-/* CTA Banner */
-.cta-banner {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
-    padding: 80px 40px;
-    border-radius: 20px;
-    text-align: center;
-    color: white;
-}
-
-.cta-banner h2 {
-    font-size: 36px;
-    margin-bottom: 30px;
-}
-
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Events */
-
-.events-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.event-card {
-    background-color: var(--primary-green);
-    color: rgb(255, 255, 255);
-    border-radius: 12px;
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.event-date {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.event-date .day {
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.event-date .month {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.event-info {
-    flex-grow: 1;
-}
-
-.event-subtitle {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-}
-
-.event-info h3 {
-    font-size: 20px;
-}
-
-.events-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-}
-
-.event-card {
-    background-color: var(--primary-green);
-    color: white;
-    padding: 30px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.event-date {
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
-}
-
-.event-date .day {
-    font-size: 32px;
-    font-weight: 700;
-}
-
-.event-date .month {
-    font-size: 12px;
-    text-transform: uppercase;
-}
-
-/* Ensure the sections are flush */
-.events {
-    padding-bottom: 80px; 
-    /* If the background of events is white, ensure the footer has no top margin */
-}
-
-/* --- MEDIA PAGE SPECIFIC STYLES --- */
+/* ===== MEDIA PAGE ===== */
 
 .media-page .hero-section {
     background-color: var(--light-green);
-    padding: 100px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 80px 60px;
+    align-items: start;
 }
 
 .media-page .hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px 60px 20px;
+    padding-top: 20px;
 }
 
 .top-news-label {
-    display: inline-block;
-    font-size: 14px;
+    display: block;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    margin-bottom: 24px;
+}
+
+.media-page .hero-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
     color: var(--text-dark);
-    margin-bottom: 20px;
-    position: relative;
-    padding-left: 40px;
+    margin-bottom: 40px;
+    max-width: 420px;
 }
 
-/* Horizontal line next to TOP NEWS */
-.top-news-label::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 30px;
-    height: 2px;
-    background-color: var(--text-dark);
+.media-page .hero-content > p {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    max-width: 360px;
 }
 
-.media-page h1 {
-    font-size: 48px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    max-width: 700px;
-}
-
-/* Info Cards Grid */
+/* Right side news cards panel */
 .info-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .info-card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.info-card:hover {
-    transform: translateY(-10px);
+.info-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.info-card:first-child {
+    padding-top: 0;
 }
 
 .info-card img {
-    width: 100%;
-    height: 200px;
+    width: 100px;
+    height: 80px;
     object-fit: cover;
-}
-
-.card-text {
-    padding: 25px;
+    border-radius: 8px;
 }
 
 .card-text h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    line-height: 1.3;
 }
 
 .card-text .date {
     display: block;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--text-gray);
-    margin-bottom: 15px;
-    text-transform: uppercase;
+    margin-bottom: 6px;
 }
 
 .card-text p {
+    font-size: 13px;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+/* Events section */
+.media-page .events {
+    padding-top: 80px;
+}
+
+.media-page .events h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+ 
+/* Project Detail Page */
+.project-detail .overline {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+ 
+.project-title {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    max-width: 800px;
+}
+ 
+.project-description {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 850px;
+    margin-bottom: 48px;
+    color: var(--text-gray);
+}
+ 
+.project-feature-image {
+    margin-bottom: 64px;
+}
+ 
+.rounded-image-large {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+}
+ 
+.project-mission {
+    max-width: 850px;
+    margin: 0 auto;
+}
+ 
+.mission-title {
+    font-size: 36px;
+    margin-bottom: 24px;
+}
+ 
+.mission-content p {
+    color: var(--text-gray);
+    margin-bottom: 24px;
+}
+ 
+.mission-list {
+    margin-bottom: 32px;
+}
+ 
+.mission-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+ 
+.mission-list li::before {
+    content: "•";
+    color: var(--bg-black);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+ 
+.mission-footer {
+    padding-left: 20px;
+    font-size: 18px;
+    color: var(--text-dark) !important;
+}
+ 
+.stats-highlight-section {
+    background-color: var(--light-green);
+    padding: 60px 0;
+    margin: 60px 0;
+}
+ 
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+ 
+.stat-box h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+ 
+.stat-box p {
     font-size: 14px;
     color: var(--text-gray);
 }
-
-/* Responsive fix for Media Cards */
-@media (max-width: 900px) {
-    .info-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .media-page h1 {
-        font-size: 32px;
-    }
+ 
+/* Donation Page */
+.donation-hero {
+    background-color: var(--light-green);
+    padding: 100px 0;
 }
-
-/* Responsive adjustments */
+ 
+.hero-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+ 
+.hero-text {
+    flex: 1;
+}
+ 
+.hero-text h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    margin: 15px 0 25px;
+    color: var(--text-dark);
+}
+ 
+.hero-text p {
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    max-width: 450px;
+}
+ 
+.hero-image-wrap {
+    flex: 1;
+}
+ 
+.rounded-img {
+    width: 100%;
+    border-radius: 30px;
+    display: block;
+}
+ 
+.donation-section {
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+}
+ 
+.donation-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+ 
+.donation-section h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+ 
+.donation-section .subtitle {
+    color: #888;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 60px;
+    max-width: 850px;
+}
+ 
+.overview-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: flex-start;
+}
+ 
+.overview-left h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+ 
+.overview-right .small-title {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+ 
+.overview-right p,
+.overview-left p {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.6;
+}
+ 
+.usage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 60px;
+}
+ 
+.usage-title h2 {
+    font-size: 36px;
+    line-height: 1.2;
+}
+ 
+.usage-content p {
+    color: var(--text-gray);
+    font-size: 15px;
+}
+ 
+.cta-card {
+    background-size: cover;
+    background-position: center;
+    padding: 100px 40px;
+    border-radius: 24px;
+    text-align: center;
+    color: white;
+    margin-bottom: 80px;
+}
+ 
+.cta-card h2 {
+    font-size: 38px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+ 
+.cta-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+ 
+/* Stats Grid (Donation) */
+.stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 40px;
+}
+ 
+/* Color Indicators */
+.dot {
+    width: 24px;
+    height: 14px;
+    border-radius: 4px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+ 
+.green  { background-color: #c5f1c1; }
+.purple { background-color: #a49cf1; }
+.cream  { background-color: #f9f1d0; }
+.yellow { background-color: #fbd672; }
+.pink   { background-color: #e599b4; }
+ 
+/* Footer */
+footer {
+    background-color: var(--bg-black);
+    color: white;
+    padding: 80px 0;
+    margin-top: 0;
+}
+ 
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 2fr;
+    gap: 40px;
+}
+ 
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+}
+ 
+.footer-links h4 {
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+ 
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+ 
+.footer-links ul li a {
+    color: #999;
+    font-size: 14px;
+}
+ 
+.footer-subscribe h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+ 
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+}
+ 
+.subscribe-form input {
+    flex-grow: 1;
+    background: transparent;
+    border: 1px solid #333;
+    padding: 12px 16px;
+    border-radius: 4px;
+    color: white;
+}
+ 
+.subscribe-form input::placeholder {
+    color: #666;
+}
+ 
+/* Responsive */
 @media (max-width: 900px) {
     .about-grid,
     .services-grid,
-    .donations-grid,
     .events-grid,
-    .projects-grid {
+    .projects-grid,
+    .journey-card-green,
+    .hero-flex,
+    .overview-grid,
+    .usage-grid {
         grid-template-columns: 1fr;
+        flex-direction: column;
+        gap: 40px;
     }
-    
+ 
+    .journey-card-green { padding: 30px; }
+ 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
     }
-
+ 
     .hero-content h1 {
         font-size: 48px;
     }
-    
-    .donations-chart {
-        justify-content: flex-start;
+ 
+    .hero-text h1 {
+        font-size: 36px;
     }
 }
+ 
+@media (max-width: 768px) {
+    .about-intro-section h1 {
+        font-size: 36px;
+    }
+ 
+    .intro-grid,
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+ 
+@media (max-width: 850px) {
+    .hero-grid,
+    .contact-form .row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+ 
+    .hero-left h1 {
+        font-size: 40px;
+    }
+}
+ 
 @media (max-width: 600px) {
     .hero-content h1 {
-        font-size: 32px; /* Much safer for phones */
+        font-size: 32px;
     }
-
+ 
     .footer-grid {
-        grid-template-columns: 1fr; /* Stack everything in the footer */
+        grid-template-columns: 1fr;
         text-align: center;
     }
-
+ 
     .nav-links {
-        display: none; /* Usually, you'd replace this with a mobile menu toggle */
+        display: none;
     }
-
-    .cta-buttons, .hero-actions {
-        flex-direction: column; /* Stack buttons on top of each other */
+ 
+    .cta-buttons,
+    .hero-actions {
+        flex-direction: column;
         width: 100%;
     }
-    
+ 
     .btn {
-        width: 100%; /* Make buttons full-width for easier tapping */
+        width: 100%;
+    }
+ 
+    .donation-section h1 {
+        font-size: 1.8rem;
+    }
+ 
+    .stats-grid {
+        gap: 20px;
+    }
+ 
+    .stat-item {
+        width: 100%;
     }
 }
+ 
