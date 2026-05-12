@@ -131,7 +131,7 @@ ul {
     line-height: 1.1;
     max-width: 650px;
     margin-bottom: 40px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Makes text pop against the image */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Makes text pop against the image */
 }
 
 .hero-actions {
@@ -147,7 +147,7 @@ section.hero.container {
     gap: 60px;
     height: auto;
     min-height: 500px;
-    background: none; /* Removing the background image from shared.css */
+    background: none;     
     color: var(--text-dark);
     padding: 80px 20px;
 }
@@ -159,8 +159,8 @@ section.hero.container {
 .hero-content h1 {
     font-size: 56px;
     margin: 20px 0;
-    text-shadow: none; /* Removing shadow from shared.css */
-    color: var(--text-dark);
+    text-shadow: none; 
+    color: white;
 }
 
 .hero-image {
@@ -218,9 +218,6 @@ section.hero.container {
     justify-content: center;
 }
 /* Services */
-.services {
-    background-color: var(--light-green);
-}
 
 .services-grid {
     display: grid;
@@ -252,9 +249,28 @@ section.hero.container {
 }
 
 .services-image {
-    background: url('https://images.unsplash.com/photo-1544928147-79a2dbc1f389?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
+    background: url('image copy 2.png') center/cover;
     height: 500px;
     border-radius: 20px;
+}
+
+.services-image-container img{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.services-image-container{
+    grid-column: 3;
+}
+
+.rounded-image {
+    width: 100%;
+    max-width: 500px; /* Prevents image from becoming too massive */
+    height: auto;
+    border-radius: 28px; /* The specific rounded look from your example */
+    object-fit: cover;
+    display: block;
 }
 .services {
     background-color: var(--light-green);
